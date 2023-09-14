@@ -1,0 +1,238 @@
+int binary_search_first_occurrence(const std::vector<int>& arr, int target, int left, int right) {
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+
+        if (arr[mid] == target) {
+            if (mid == 0 || arr[mid - 1] != target) {
+                return mid;
+            } else {
+                // Search in the left subarray for the first occurrence   ------------------->First Occurence in Binary Search 
+                right = mid - 1;
+            }
+        } else if (arr[mid] < target) {
+            // Search in the right subarray
+            left = mid + 1;
+        } else {
+            // Search in the left subarray
+            right = mid - 1;
+        }
+    }
+
+    return -1;  // Element not found
+}
+***************************************************************************************
+int binary_search_last_occurrence(const std::vector<int>& arr, int target, int left, int right) {
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+
+        if (arr[mid] == target) {
+            if (mid == arr.size() - 1 || arr[mid + 1] != target) {
+                return mid;
+            } else {
+                // Search in the right subarray for the last occurrence  ------------------->Last Occurence in Binary Search 
+                left = mid + 1;
+            }
+        } else if (arr[mid] < target) {
+            // Search in the right subarray
+            left = mid + 1;
+        } else {
+            // Search in the left subarray
+            right = mid - 1;
+        }
+    }
+return -1;
+}
+****************************************************************************************
+
+int searchInRotatedSortedArray(const std::vector<int>& nums, int target) {
+    int left = 0;
+    int right = nums.size() - 1;
+
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+
+        if (nums[mid] == target) {
+            return mid; 
+        }                                               -------------------> Binary Search in sorted and rotated array
+
+        // Check which half of the array is sorted and decide where to search
+        if (nums[left] <= nums[mid]) { // Left half is sorted   
+            if (nums[left] <= target && target < nums[mid]) {
+                right = mid - 1; // Search in the left half
+            } else {
+                left = mid + 1; // Search in the right half
+            }
+        } else { // Right half is sorted
+            if (nums[mid] < target && target <= nums[right]) {
+                left = mid + 1; // Search in the right half
+            } else {
+                right = mid - 1; // Search in the left half
+            }
+        }
+    }
+
+    return -1; // Element not found
+}
+*******************************************************************************
+
+int findPeakElement(const std::vector<int>& nums) {
+    int left = 0;
+    int right = nums.size() - 1;
+
+    while (left < right) {
+        int mid = left + (right - left) / 2;
+	if(mid==0||nums[mid]>=nums[m-1]&&mid==n-1||nums[mid]>=nums[m+1])
+		return mid;                                       -------------------> Peak Element in unsorted array
+
+        if (nums[mid] > nums[mid + 1]&&mid<n-1) {
+            // The peak is in the left half or at the current position
+            right = mid;} 
+
+        else {
+            // The peak is in the right half
+            left = mid + 1;
+        }
+    }
+  return -1;
+}
+*****************************************************************************
+bool hasPairWithSum(const std::vector<int>& sortedArray, int target) {
+    int left = 0;
+    int right = sortedArray.size() - 1;
+
+    while (left < right) {
+        int currentSum = sortedArray[left] + sortedArray[right];
+
+        if (currentSum == target) {                                  -------------------> Has pair with sum in sorted array
+            return true; // Found a pair with the target sum
+        } else if (currentSum < target) {
+            left++; // Move the left pointer to increase the sum
+        } else {
+            right--; // Move the right pointer to decrease the sum
+        }
+    }
+
+    return false; // No pair found with the target sum
+}
+***********************************************************************
+"Boyer-Moore Majority Vote Algorithm."
+-------------------------------------
+int findMajorityElement(const std::vector<int>& nums) {
+    int candidate = nums[0];
+    int count = 1;
+
+    for (int i = 1; i < nums.size(); i++) {
+        if (count == 0) {
+            candidate = nums[i];                         -------------------> Majority in an array
+            count = 1;
+        } else if (candidate == nums[i]) {
+            count++;
+        } else {
+            count--;
+        }
+    }
+
+    // At this point, 'candidate' may be the majority element, but we need to verify it.
+    count = 0;
+    for (int num : nums) {
+        if (num == candidate) {
+            count++;
+        }
+    }
+
+    if (count > nums.size() / 2) {
+        return candidate; // 'candidate' is the majority element
+    }
+return -1;
+}
+******************************************************************************
+
+bool isPossible(std::vector<int>& books, int students, int maxPages) {
+    int numStudents = 1;
+    int currentPages = 0;
+
+    for (int i = 0; i < books.size(); i++) {
+        if (books[i] > maxPages) {
+            return false; // If a book can't be allocated within maxPages, return false
+        }
+
+        if (currentPages + books[i] <= maxPages) {               -------------------> Min Page Allocation using Binary Search
+            count = 1;
+            currentPages += books[i];
+        } else {
+            numStudents++;
+            currentPages = books[i];
+        }
+
+        if (numStudents > students) {
+            return false; // If we need more students than available, return false
+        }
+    }
+
+    return true;
+}
+
+int minPagesAllocation(std::vector<int>& books, int students) {
+    int totalPages = 0;
+    int maxPage = 0;
+
+    for (int i = 0; i < books.size(); i++) {
+        totalPages += books[i];
+        maxPage = std::max(maxPage, books[i]);
+    }
+
+    int left = maxPage; // Minimum possible maximum pages per student
+    int right = totalPages; // Maximum possible maximum pages per student
+    int result = -1;
+
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+
+        if (isPossible(books, students, mid)) {
+            result = mid;
+            right = mid - 1; // Try to minimize the maximum pages per student
+        } else {
+            left = mid + 1;
+        }
+    }
+
+    return result;
+}
+
+********************************************************************************************
+
+double findMedianSortedArrays(const std::vector<int>& nums1, const std::vector<int>& nums2) {
+    if (nums1.size() > nums2.size()) {
+        return findMedianSortedArrays(nums2, nums1);
+    }
+
+    int x = nums1.size();
+    int y = nums2.size();
+
+    int low = 0, high = x;
+                                                    -------------------> Meadian of two sorted arrays
+    while (low <= high) {
+        int partitionX = (low + high) / 2;
+        int partitionY = (x + y + 1) / 2 - partitionX;
+
+        int maxX = (partitionX == 0) ? INT_MIN : nums1[partitionX - 1];
+        int maxY = (partitionY == 0) ? INT_MIN : nums2[partitionY - 1];
+
+        int minX = (partitionX == x) ? INT_MAX : nums1[partitionX];
+        int minY = (partitionY == y) ? INT_MAX : nums2[partitionY];
+
+        if (maxX <= minY && maxY <= minX) {
+            if ((x + y) % 2 == 0) {
+                return (double)(std::max(maxX, maxY) + std::min(minX, minY)) / 2.0;
+            } else {
+                return (double)std::max(maxX, maxY);
+            }
+        } else if (maxX > minY) {
+            high = partitionX - 1;
+        } else {
+            low = partitionX + 1;
+        }
+    }
+
+    throw std::invalid_argument("Input arrays are not sorted.");
+}

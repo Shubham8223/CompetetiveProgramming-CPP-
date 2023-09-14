@@ -1,0 +1,137 @@
+Vectors:
+--------------------
+push_back(): Adds an element to the end of a vector.
+pop_back(): Removes the last element from a vector.
+size(): Returns the number of elements in a vector.
+empty(): Checks if the vector is empty.
+front(): Accesses the first element.
+back(): Accesses the last element.
+clear(): Removes all elements from the vector.
+erase(): Removes elements at a specified position or within a range.
+insert(): Inserts elements at a specified position.
+resize(): Changes the size of the vector.
+swap(): Swaps the contents of two vectors.
+
+Lists:
+-------------------
+push_back(): Adds an element to the end of a list.
+push_front(): Adds an element to the front of a list.
+pop_back(): Removes the last element from a list.
+pop_front(): Removes the first element from a list.
+size(): Returns the number of elements in a list.
+empty(): Checks if the list is empty.
+front(): Accesses the first element.
+back(): Accesses the last element.
+clear(): Removes all elements from the list.
+erase(): Removes elements at a specified position or within a range.
+insert(): Inserts elements at a specified position.
+splice(): Moves elements from one list to another.
+sort(): Sorts the list.
+reverse(): Reverses the list.
+
+Maps and Sets (Associative Containers):
+----------------------------------------
+insert(): Inserts elements into the map or set.
+erase(): Removes elements by key or iterator.
+find(): Searches for an element by key.
+count(): Counts the number of elements with a specific key.
+begin() and end(): Iterators for the start and end of the container.
+clear(): Removes all elements from the container.
+
+STACK:
+----------------------
+push(): Adds an element to the top of the stack.
+pop(): Removes the top element from the stack.
+top(): Accesses the top element without removing it.
+empty(): Checks if the stack is empty.
+size(): Returns the number of elements in the stack.
+
+QUEUE:
+-------------------
+push(): Adds an element to the back of the queue.
+pop(): Removes the front element from the queue.
+front(): Accesses the front element without removing it.
+back(): Accesses the back element without removing it.
+empty(): Checks if the queue is empty.
+size(): Returns the number of elements in the queue.
+
+Priority Queue:
+--------------------
+std::priority_queue<int, std::vector<int>, std::greater<int>> min_heap;
+push(): Inserts an element into the priority queue. The element is placed in the appropriate position based on its priority.
+pop(): Removes the element with the highest priority (at the front of the queue).
+top(): Accesses the element with the highest priority (at the front of the queue) without removing it.
+empty(): Checks if the priority queue is empty.
+size(): Returns the number of elements in the priority queue.
+************************************************************************************************************************
+STL FUNCTIONS:
+-----------------------
+
+std::find(): Searches for an element in a range.
+std::find_if(): Searches for the first element satisfying a condition.
+std::count(): Counts the occurrences of a value in a range.
+std::count_if(): Counts the elements satisfying a condition in a range.
+std::max_element(): Finds the maximum element in a range.
+std::min_element(): Finds the minimum element in a range.
+std::sort(): Sorts elements in a range.
+std::reverse(): Reverses the order of elements in a range.
+std::for_each(): Applies a function to each element in a range.
+std::transform(): Applies a function and stores results in another range.
+
+
+************************************************************
+
+Non-Mutating Functions:
+std::find(): Searches for a value in a range and returns an iterator to the first matching element.
+std::find_if(): Searches for an element satisfying a condition in a range.
+std::count(): Counts the occurrences of a value in a range.
+std::count_if(): Counts the elements satisfying a condition in a range.
+std::min_element(): Finds the iterator to the minimum element in a range.
+std::max_element(): Finds the iterator to the maximum element in a range.
+std::all_of(): Checks if all elements in a range satisfy a condition.
+std::any_of(): Checks if any element in a range satisfies a condition.
+std::none_of(): Checks if none of the elements in a range satisfy a condition.
+std::equal(): Checks if two ranges are equal.
+std::search(): Searches for a subsequence within a range.
+std::is_permutation(): Checks if one range is a permutation of another.
+std::for_each(): Applies a function to each element in a range.
+std::transform(): Applies a function to each element in a range and stores results in another range.
+std::accumulate(): Computes the sum or product of elements in a range.
+std::count_if(): Counts the elements satisfying a condition in a range.
+std::find_if(): Searches for the first element satisfying a condition in a range.
+std::find_if_not(): Searches for the first element not satisfying a condition in a range.
+std::any_of(): Checks if any element in a range satisfies a condition.
+std::all_of(): Checks if all elements in a range satisfy a condition.
+std::none_of(): Checks if none of the elements in a range satisfy a condition.
+std::is_sorted(): Checks if a range is sorted.
+std::next(): Advances an iterator by a specified number of steps.
+std::prev(): Retreats an iterator by a specified number of steps.
+
+Mutating Functions:Mutating Functions:
+std::sort():
+
+Syntax: std::sort(begin, end)
+
+Syntax: std::stable_sort(begin, end)
+
+Syntax: std::nth_element(begin, nth, end)
+
+Syntax: std::copy(begin, end, destination)
+
+Syntax: std::move(begin, end, destination)
+
+Syntax: std::rotate(begin, middle, end)
+
+Syntax: std::reverse(begin, end)
+
+Syntax: std::rotate(begin, pivot, end)
+
+Syntax: std::replace(begin, end, old_value, new_value)
+
+Syntax: std::replace_if(begin, end, predicate, new_value)
+
+Syntax: std::remove(begin, end, value)
+
+Syntax: std::remove_if(begin, end, predicate)
+
+Syntax: std::unique(begin, end)

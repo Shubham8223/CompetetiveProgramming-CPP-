@@ -1,0 +1,122 @@
+template <typename T>
+T GCD(T a, T b) {
+    while (b != 0) {
+        T temp = b;
+        b = a % b;
+        a = temp;
+    }                       ---------------------------------->Variadic template
+    return a;
+}
+
+template <typename T, typename... Args>
+T GCD(T a, Args... args) 
+{
+    return GCD(a, GCD(args...));
+}
+*******************************************************************
+#define MAX_VALUE 100
+#define SQUARE(x) ((x) * (x))                          --------------->Macros
+
+typedef int Integer;
+*******************************************************************
+int Add(int a, int b) {
+    return a + b;
+}
+
+int Multiply(int a, int b) {
+    return a * b;
+}
+
+int main() 
+{                               --------------------------------------->Function Pointers
+
+    int (*ptrAdd)(int, int);
+    int (*ptrMultiply)(int, int);
+
+    ptrAdd = Add;
+    ptrMultiply = Multiply;
+
+    int result1 = ptrAdd(5, 3);
+    int result2 = ptrMultiply(4, 7);
+**********************************************************************
+class Complex {
+public:
+    Complex(double real = 0.0, double imag = 0.0) : real_(real), imag_(imag) {}
+
+
+    Complex operator+(const Complex& other) const {
+        return Complex(real_ + other.real_, imag_ + other.imag_);
+    }
+
+
+    bool operator==(const Complex& other) const {
+        return (real_ == other.real_) && (imag_ == other.imag_);
+                                                           ------------------------------------>operator overloading
+    }
+
+
+    friend std::ostream& operator<<(std::ostream& os, const Complex& obj);
+
+private:
+    double real_;
+    double imag_;
+};
+
+
+std::ostream& operator<<(std::ostream& os, const Complex& obj) {
+    os << obj.real_ << " + " << obj.imag_ << "i";
+    return os;
+}
+***************************************************************************
+class MyFriendClass {
+    // Declare the class that will be a friend
+    friend class MyClass;
+
+    // ... Class members
+};
+                                         ----------------------------------------->Friend class and function
+
+class MyClass {
+    // Declare the friend function
+    friend void MyFriendFunction(MyClass& obj);
+
+    // ... Class members
+};
+******************************************************************************
+class Base {
+public:
+    virtual void foo() {
+        std::cout << "Base::foo()" << std::endl;
+    }
+};                       ------------------------------------------------------->Function Overidding 
+
+class Derived : public Base {
+public:
+    void foo() override {
+        std::cout << "Derived::foo()" << std::endl;
+    }
+};
+***************************************************************************************
+class Base {
+public:
+    Base(int value) {
+        // Constructor in the base class
+    }
+};            -------------------------------------------------------------------->Super Constructor 
+
+class Derived : public Base {
+public:
+    Derived(int value) : Base(value) {
+        // Constructor in the derived class
+    }
+};
+*********************************************************************************************
+class Shape {
+public:
+    virtual double area() = 0; // Pure virtual function --------------------------------->Abstract classes
+};
+*******************************************************************************************
+std::vector<int> numbers = {5, 3, 1, 4, 2};
+std::sort(numbers.begin(), numbers.end(), [](int a, int b) {
+    return a < b;                        --------------------------------------------->Lambda Functions
+}); // Sorts the vector in ascending order
