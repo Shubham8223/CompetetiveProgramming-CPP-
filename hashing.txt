@@ -1,0 +1,19 @@
+Here are some reasons why double hashing can work better in certain scenarios:
+
+Reduced Clustering: One common issue with simple techniques like linear probing is that they can lead to clustering, where consecutive hash table slots are filled with keys, creating a "cluster" of keys that must be resolved sequentially. Double hashing helps break up clusters by using a second hash function to determine the step size, which can reduce clustering and improve overall performance.
+
+Diverse Probing Sequences: With double hashing, the probing sequence (the order in which you search for empty slots) depends on both the primary and secondary hash functions. This diversity in probing sequences can help avoid getting stuck in long sequences of probes, as can happen with linear probing.
+
+Better Load Factor Tolerance: Double hashing can be more tolerant of higher load factors (the ratio of the number of elements to the number of slots in the hash table) compared to linear probing. This means that double hashing may maintain good performance even when the hash table is relatively full.
+
+Uniform Key Distribution: If the hash functions used in double hashing are well-designed and produce a uniform distribution of hash values, it can lead to better key distribution in the hash table. This uniformity helps minimize collisions.
+-------------------------------------------------
+load factor(alpha)=N/M ,is the ratio of the number of elements stored in the hash table (N) to the number of slots or buckets available (M).
+
+Expected chain length is alpha
+
+Expected time to search,delete,insert=O(1+alpha)
+
+Expected Number of Probes Required = 1/(1-alpha)
+
+*******************************************************************************************************************************************

@@ -1,0 +1,183 @@
+**Pathlib:**
+----------------
+1. Creating Paths:
+   - `Path('path/to/directory')`: Create a Path object representing a directory or file path.
+
+2. Checking Existence:
+   - `.exists()`: Check if the path exists.
+   - `.is_file()`: Check if the path points to a file.
+   - `.is_dir()`: Check if the path points to a directory.
+
+3. File and Directory Operations:
+   - `.mkdir()`: Create a directory.
+   - `.touch()`: Create an empty file.
+   - `.rename(new_name)`: Rename the file or directory.
+   - `.unlink()`: Delete a file.
+   - `.rmdir()`: Delete an empty directory.
+   - `.glob(pattern)`: Find files matching a glob-style pattern.
+   - `.iterdir()`: Iterate over the contents of a directory.
+
+4. Reading and Writing Files:
+   - `.read_text()`: Read the contents of a text file.
+   - `.write_text(text)`: Write text to a text file.
+   - `.read_bytes()`: Read the contents of a binary file.
+   - `.write_bytes(data)`: Write binary data to a binary file.
+
+5. Path Manipulation:
+   - `.parent`: Get the parent directory.
+   - `.name`: Get the base name (file or directory name).
+   - `.suffix`: Get the file extension.
+   - `.stem`: Get the base name without the extension.
+   - `.joinpath(*paths)`: Join paths together.
+   - `.resolve()`: Get the absolute path.
+   - `.relative_to(other)`: Get a relative path to another path.
+****************************************************************************************************************
+**os:**
+------------------
+1. File and Directory Operations:
+   - `os.mkdir(path)`: Create a directory.
+   - `os.makedirs(path)`: Create directories recursively.
+   - `os.remove(file)`: Remove a file.
+   - `os.rmdir(path)`: Remove an empty directory.
+   - `os.removedirs(path)`: Remove directories recursively.
+   - `os.rename(src, dst)`: Rename a file or directory.
+   - `os.chdir(path)`: Change the current working directory.
+   - `os.getcwd()`: Get the current working directory.
+
+2. File and Directory Listing:
+   - `os.listdir(path)`: List files and directories in a directory.
+   - `os.scandir(path)`: List files and directories with additional information.
+   
+3. Path Manipulation:
+   - `os.path.join(path, *paths)`: Join paths together.
+   - `os.path.abspath(path)`: Get the absolute path.
+   - `os.path.dirname(path)`: Get the directory part of a path.
+   - `os.path.basename(path)`: Get the base name (file or directory name).
+   - `os.path.splitext(path)`: Split a path into the base name and extension.
+   - `os.path.exists(path)`: Check if a path exists.
+   - `os.path.isfile(path)`: Check if a path points to a file.
+   - `os.path.isdir(path)`: Check if a path points to a directory.
+   - `os.path.isabs(path)`: Check if a path is absolute.
+   - `os.path.islink(path)`: Check if a path is a symbolic link.
+   - `os.path.realpath(path)`: Get the real path of a symbolic link.
+******************************************************************************************************************
+sys
+-------------
+**System Information:**
+
+1. `sys.version`: Get the Python version information.
+2. `sys.platform`: Get the platform identifier (e.g., "linux", "win32").
+3. `sys.executable`: Get the path to the Python interpreter.
+4. `sys.argv`: Get the command-line arguments as a list.
+
+**Standard Streams:**
+
+5. `sys.stdin`: Standard input stream (used for reading user input).
+6. `sys.stdout`: Standard output stream (used for printing).
+7. `sys.stderr`: Standard error stream (used for error messages).
+
+**Exiting the Program:**
+
+8. `sys.exit([status])`: Exit the Python interpreter with an optional status code.
+
+**Path-related Functions:**
+
+9. `sys.path`: List of directories where Python searches for modules.
+10. `sys.modules`: A dictionary of loaded modules.
+11. `sys.path.append(path)`: Add a directory to the module search path.
+12. `sys.path.remove(path)`: Remove a directory from the module search path.
+
+**Memory Management:**
+
+13. `sys.getsizeof(object)`: Get the memory size of an object in bytes.
+14. `sys.getrefcount(object)`: Get the reference count of an object.
+15. `sys.setrecursionlimit(limit)`: Set the maximum recursion depth for Python functions.
+
+**Error Output:**
+
+16. `sys.tracebacklimit`: Get or set the number of tracebacks displayed in error messages.
+
+**Other Functions:**
+
+17. `sys.getwindowsversion()`: Get detailed information about the Windows version (Windows only).
+18. `sys.hash_info`: Get information about the hash algorithm used by Python dictionaries.
+19. `sys.int_info`: Get information about the implementation's integer representation.
+*******************************************************************************************************************************************************************************************
+JSON Module (json)
+******************************
+json.dumps(obj, *, skipkeys=False, ensure_ascii=True, check_circular=True, allow_nan=True, cls=None, indent=None, separators=None, default=None, sort_keys=False, **kw)
+Description: Serialize a Python object to a JSON formatted string.
+
+json.dump(obj, fp, *, skipkeys=False, ensure_ascii=True, check_circular=True, allow_nan=True, cls=None, indent=None, separators=None, default=None, sort_keys=False, **kw)
+Description: Serialize a Python object to a JSON formatted string and write it to a file-like object.
+
+json.load(fp, *, cls=None, object_hook=None, parse_float=None, parse_int=None, parse_constant=None, object_pairs_hook=None, **kw)
+Description: Deserialize JSON data from a file-like object (e.g., a file handle) to a Python object.
+
+json.JSONEncoder
+Description: A class that can be subclassed to customize JSON encoding.
+************************************************************************
+
+Filtering and Selecting:
+
+filter(**kwargs): Returns a new queryset containing objects that match the given lookup parameters.
+
+exclude(**kwargs): Returns a new queryset containing objects that do not match the given lookup parameters.
+
+get(**kwargs): Retrieves a single object that matches the given lookup parameters. Raises an exception if more than one object is found.
+
+all(): Returns all objects in the queryset.
+
+first(): Returns the first object in the queryset, or None if no objects are found.
+
+last(): Returns the last object in the queryset, or None if no objects are found.
+
+values(*fields): Returns a queryset that returns dictionaries for each object, with the specified fields as keys.
+
+values_list(*fields, flat=False): Returns a queryset that returns tuples for each object, with the specified fields as elements.
+
+only(*fields): Limits the fields returned from the database to the specified fields.
+
+Chaining Methods:
+
+order_by(*fields): Orders the queryset by the specified fields. Prefixing a field name with - indicates descending order.
+
+reverse(): Reverses the order of the queryset.
+
+distinct(): Returns a queryset with duplicate rows removed.
+
+Aggregation:
+
+aggregate(*aggregations): Performs aggregations on the queryset, such as Count, Sum, Avg, etc.
+Joins and Relationships:
+
+select_related(*fields): Retrieves related objects in a single query using a SQL JOIN.
+
+prefetch_related(*lookups): Retrieves related objects using separate queries to minimize database queries.
+
+Pagination:
+
+[start:stop]: Slicing a queryset allows for pagination, limiting the results to a specified range.
+Query Expressions:
+
+F(): Allows referencing model fields within queries.
+
+Q(): Enables complex queries using OR, AND, and NOT operators.
+
+Func(): Provides access to database functions, such as Upper, Lower, Concat, etc.
+Annotating and Aggregating:
+
+annotate(*expressions): Adds annotations to each object in the queryset.
+
+Count(): An aggregation function for counting objects in a queryset.
+
+Sum(): An aggregation function for summing values in a queryset.
+
+Avg(): An aggregation function for calculating the average of values in a queryset.
+
+Min(): An aggregation function for finding the minimum value in a queryset.
+
+Max(): An aggregation function for finding the maximum value in a queryset.
+
+json.JSONDecoder
+Description: A class that can be subclassed to customize JSON decoding.

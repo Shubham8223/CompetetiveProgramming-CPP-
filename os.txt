@@ -1,0 +1,83 @@
+Multiprogramming:
+-----------------
+Objective:
+
+The primary goal of multiprogramming is to maximize CPU utilization and throughput.
+It aims to keep the CPU busy by allowing multiple processes to be loaded into memory simultaneously.
+Execution:
+
+In a multiprogramming system, several processes are loaded into memory concurrently.
+Processes may be in various states, such as ready (waiting to execute), running (actively executing on the CPU), or waiting (waiting for I/O or other events).
+Context Switching:
+
+Multiprogramming involves frequent context switching, where the operating system switches the CPU from one process to another.
+Context switching occurs when a running process is temporarily halted (e.g., due to I/O) or when the operating system decides to allocate CPU time to a different process.
+CPU Utilization:
+
+Multiprogramming strives to keep the CPU busy even if some processes are waiting for I/O or other events.
+This approach helps in achieving higher CPU utilization and improved system throughput.
+Example:
+
+An example of multiprogramming is a time-sharing system where multiple users interact with the computer concurrently. Each user's tasks or commands are treated as separate processes, and the CPU is shared among them.
+
+Multitasking:
+-------------------
+Objective:
+
+Multitasking focuses on providing the illusion of concurrent execution to users and applications.
+It allows multiple tasks or processes to run concurrently, giving the appearance that they are executing simultaneously.
+Execution:
+
+In a multitasking system, multiple processes or tasks are executed concurrently on a single CPU.
+The CPU switches between these tasks quickly, providing each task with a time slice or quantum of CPU time.
+Context Switching:
+
+Context switching is an integral part of multitasking, but it occurs more frequently and with shorter time slices compared to multiprogramming.
+The objective is to provide the illusion of concurrent execution to users and applications.
+User Experience:
+
+Multitasking creates the perception of parallelism, allowing users to interact with multiple applications simultaneously.
+Users can switch between tasks rapidly, and each task appears to run concurrently.
+Example:
+
+Modern desktop and mobile operating systems are examples of multitasking systems. Users can open and use multiple applications at the same time, and the operating system schedules CPU time for each application in a way that gives the impression of concurrent execution.
+Multiprocessing refers to the use of multiple central processing units (CPUs) or processor cores within a single computer system to execute multiple tasks or processes concurrently. It is a technique used to improve the performance and responsiveness of a computer by parallelizing the execution of tasks.
+
+Here are key concepts and characteristics of multiprocessing:
+***********************************************************
+Multiple Processors or Cores:
+
+Multiprocessing involves the use of multiple physical processors or CPU cores within a single computer system.
+Each processor or core can execute its instructions independently and concurrently.
+Parallel Execution:
+
+In a multiprocessing system, tasks or processes are divided into smaller units, often called threads or sub-processes.
+These threads or sub-processes can be executed in parallel on different processors or cores.
+Parallel execution can significantly speed up computational tasks and improve overall system performance.
+Task Parallelism:
+
+Multiprocessing is particularly useful for tasks that can be divided into multiple independent sub-tasks that can be executed concurrently.
+Each sub-task is assigned to a separate processor or core, and they work in parallel to complete the overall task.
+Improved Throughput and Performance:
+
+By distributing the workload across multiple processors or cores, multiprocessing can lead to improved throughput and reduced execution times for computationally intensive tasks.
+It can also enhance the responsiveness of the system, as multiple tasks can be executed simultaneously without waiting for one another.
+Load Balancing:
+
+Effective load balancing mechanisms are crucial in multiprocessing systems to ensure that tasks are evenly distributed among available processors or cores.
+Load balancing algorithms aim to minimize processor idle time and maximize overall system utilization.
+Synchronization and Communication:
+
+In a multiprocessing environment, concurrent tasks may need to synchronize and communicate with each other.
+Synchronization mechanisms (e.g., locks, semaphores) are used to coordinate access to shared resources and prevent data conflicts.
+Examples:
+
+Multiprocessing can be found in various computing environments, including multi-core desktop and laptop computers, servers, supercomputers, and high-performance computing clusters.
+Many modern operating systems and programming languages provide support for multiprocessing through libraries and APIs.
+Scalability:
+
+Multiprocessing can scale with the number of available processors or cores. As more processors are added, the system's potential for parallel execution increases.
+Challenges:
+
+Developing software for multiprocessing systems can be complex, as developers need to consider issues related to concurrency, synchronization, and load balancing.
+Debugging and troubleshooting multiprocessing applications can also be more challenging due to potential race conditions and synchronization errors.
